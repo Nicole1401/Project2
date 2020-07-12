@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = Comment.all.strip
   end
 
   # GET /comments/1
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = Comment.new.strip
   end
 
   # GET /comments/1/edit
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params).strip
 
     respond_to do |format|
       if @comment.save
